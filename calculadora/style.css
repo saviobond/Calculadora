@@ -1,0 +1,93 @@
+* { 
+    /*para a lagura ficar mais precisa e nao ser influenciada por pad e nem margem*/
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif ;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-image: url(./img/backg.svg);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+
+/*container que agrupa todas as divs da calculadora*/
+main .grid-container{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    /* é usado para definir a altura mínima de um determinado elemento*/
+    min-height: 100vh;
+    /*criar 4 colunas com 100px de tamanho*/
+    grid-template-columns: repeat(4, 100px);
+    /*Criar 5 linhas de 100px de tamanho e usar minmax() para a linha se adpatar quando for preciso*/
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    opacity: 0.8;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+     
+}
+
+/*butões da calculadore*/
+.grid-container button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: none ;
+    outline: none;
+    background-color: whitesmoke;
+    color: #927ad4;
+    
+
+    
+}
+
+.grid-container button:hover {
+    background-color: #eee;
+    color: #111;
+    
+}
+
+/*botões operadores*/
+.grid-container .operator{
+    background-color: #927ad4;
+    color: whitesmoke;
+    
+}
+
+/* fazer o ac e o . ocuparem dois espaços*/
+.span-two {
+    grid-column: span 2;
+}
+
+/*fazer o output ocupar uma linha completa e jogar os demais elementos para baixo*/
+.grid-container .output{
+    grid-column: 1 / -1;
+    background: #222; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 10px;
+    word-wrap:  break-word;
+    word-break: break-all;
+    
+}
+
+.grid-container .output .previous-operand{
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;  
+}
+
+.grid-container .output .current-operand{
+    color: white;
+    font-size: 2.5rem;
+
+}
+
